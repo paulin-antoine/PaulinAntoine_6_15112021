@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const AuthRoutes = require('./routes/auth');
+const SaucesRoutes = require('./routes/sauces');
 const app = express();
 
 mongoose.connect('mongodb+srv://piiquante:aynXtDLq7S7PZdbQ@cluster0.lhcza.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
@@ -15,11 +17,8 @@ app.use((req, res, next) => {
     next();
   });
   app.use(express.json());
-  app.post('/api/auth/signup',(req,res,next) => {
-      console.log(req.body.email);
-      console.log(req.body.password);
-      res.status(201).json({message:"utilisateur ajouté"});
-  });
+  app.use('/api/auth', AuthRoutes);
+  app.use('/api/sauces', SaucesRoutes);
   
   //mongodb+srv://piiquante:<password>@cluster0.lhcza.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 module.exports = app ;
