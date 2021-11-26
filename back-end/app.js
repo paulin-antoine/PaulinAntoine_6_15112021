@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const AuthRoutes = require('./routes/auth');
 const SaucesRoutes = require('./routes/sauces');
+const Sauce = require('./models/sauce');
+const path = require('path');
 const app = express();
 
 mongoose.connect('mongodb+srv://piiquante:aynXtDLq7S7PZdbQ@cluster0.lhcza.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
@@ -16,6 +18,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
   });
+  app.use('/images', express.static(path.join(__dirname, 'images')));
   app.use(express.json());
   app.use('/api/auth', AuthRoutes);
   app.use('/api/sauces', SaucesRoutes);
