@@ -1,3 +1,5 @@
+//Chemin d'accès vers la logique des requêtes sauces.
+
 const express = require('express');
 const router = express.Router();
 const saucesCtrls = require('../controllers/sauces');

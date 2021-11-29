@@ -1,3 +1,5 @@
+//Lancement du serveur sur le localhost:3000.
+
 const http = require('http');
 const app = require('./app');
 const normalizePort = val => {

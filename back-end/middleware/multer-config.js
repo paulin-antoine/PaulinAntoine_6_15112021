@@ -1,3 +1,5 @@
+//Gestion du dossier images.
+
 const multer = require('multer');
 
 const MIME_TYPES = {

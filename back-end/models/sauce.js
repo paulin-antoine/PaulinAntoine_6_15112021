@@ -1,3 +1,5 @@
+//Model d'item pour la base de donnée.
+
 const mongoose = require('mongoose');
 
 const saucesSchema = mongoose.Schema({

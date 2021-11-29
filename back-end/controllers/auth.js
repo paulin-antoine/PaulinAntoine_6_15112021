@@ -2,6 +2,7 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+//Hachage du mot de passe avant la requête.
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
       .then(hash => {
@@ -16,6 +17,7 @@ exports.signup = (req, res, next) => {
       .catch(error => res.status(500).json({error}));
   };
 
+//Comparaison de l'email et du mot de passe haché avant la requête.
 exports.login = (req, res, next) => {
 User.findOne({ email: req.body.email })
     .then(user => {

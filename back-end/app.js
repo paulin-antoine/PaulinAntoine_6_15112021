@@ -5,7 +5,7 @@ const SaucesRoutes = require('./routes/sauces');
 const Sauce = require('./models/sauce');
 const path = require('path');
 const app = express();
-
+//Chemin vers la base de donnée MongoDB
 mongoose.connect('mongodb+srv://piiquante:aynXtDLq7S7PZdbQ@cluster0.lhcza.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -23,5 +23,5 @@ app.use((req, res, next) => {
   app.use('/api/auth', AuthRoutes);
   app.use('/api/sauces', SaucesRoutes);
   
-  //mongodb+srv://piiquante:<password>@cluster0.lhcza.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+  
 module.exports = app ;
