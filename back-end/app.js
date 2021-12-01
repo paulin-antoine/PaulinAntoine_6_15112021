@@ -6,6 +6,7 @@ const Sauce = require('./models/sauce');
 const path = require('path');
 const app = express();
 require('dotenv').config();
+const helmet = require("helmet");
 
 //Chemin vers la base de donnée MongoDB
 mongoose.connect(process.env.MONGODB_SRV,
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
   });
   app.use('/images', express.static(path.join(__dirname, 'images')));
   app.use(express.json());
+  app.use(helmet());
   app.use('/api/auth', AuthRoutes);
   app.use('/api/sauces', SaucesRoutes);
   
