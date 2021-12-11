@@ -48,7 +48,7 @@ exports.login = (req, res, next) => {
         .then((valid) => {
           if (!valid) {
             return res.status(401).json({ error });
-          } //authMiddleware.secretKey
+          } 
           res.status(200).json({
             userId: user._id,
             token: jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
